@@ -4,6 +4,10 @@ import math
 import sys
 from pygame.locals import *
 
+FRAME_RATE = 60
+
+clock = pygame.time.Clock()
+
 pygame.init()
 
 while True:
@@ -14,7 +18,7 @@ while True:
     except:
         print "\nWell, now.  Let's try that again."
 
-Surface = pygame.display.set_mode((1200, 700))
+Surface = pygame.display.set_mode((1000, 600))
 
 Particles = []
 
@@ -29,11 +33,11 @@ class Particle:
         self.mass = mass
         self.radius = math.sqrt(self.mass)
 
-Particles.append(Particle(600, 300, 0.0, 0.0, 1000))
+Particles.append(Particle(500, 300, 0.0, 0.0, 1000))
 
 for x in range(ParticleNumber):
     #Particles.append(Particle(random.randint(10,1190), random.randint(10,690), random.randint(-1, 1), random.randint(-1, 1), 4))
-    Particles.append(Particle(random.randint(10,1190), random.randint(10,690), random.uniform(-1.5, 1.5), random.uniform(-1.5, 1.5), random.uniform(1, 10)))
+    Particles.append(Particle(random.randint(10,990), random.randint(10,590), random.uniform(-1.5, 1.5), random.uniform(-1.5, 1.5), random.uniform(1, 10)))
 
 
 
@@ -104,6 +108,9 @@ def GetInput():
 
 def main():
     while True:
+        # Limiting Frame Rate to 50 fps
+        time_passed = clock.tick(FRAME_RATE)
+        
         GetInput()
         Move()
         CollisionDetect()

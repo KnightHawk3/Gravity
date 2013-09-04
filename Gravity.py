@@ -19,7 +19,7 @@ while True:
         print "\nWell, now.  Let's try that again."
         
 while True:        
-    Screenx = raw_input ("Enter Screen Width:")
+    Screenx = raw_input ("Enter Screen Width: ")
     try:
         Screenx = int(Screenx)
         break
@@ -27,9 +27,17 @@ while True:
         print "\nWell, now.  Let's try that again."
         
 while True:
-    Screeny = raw_input ("Enter Screen Height:")
+    Screeny = raw_input ("Enter Screen Height: ")
     try:
         Screeny = int(Screeny)
+        break
+    except:
+        print "\nWell, now.  Let's try that again."
+
+while True:
+    CentreMass = raw_input ("Enter Central Particle Mass: ")
+    try:
+        CentreMass = int(CentreMass)
         break
     except:
         print "\nWell, now.  Let's try that again."
@@ -50,7 +58,7 @@ class Particle:
         self.mass = mass
         self.radius = math.sqrt(self.mass)
 
-Particles.append(Particle(Screenx/2, Screeny/2, 0.0, 0.0, 1000))
+Particles.append(Particle(Screenx/2, Screeny/2, 0.0, 0.0, CentreMass))
 
 for x in range(ParticleNumber):
     Particles.append(Particle(random.randint(10,Screenx - 10), random.randint(10,Screeny - 10), random.uniform(-1.5, 1.5), random.uniform(-1.5, 1.5), random.uniform(1, 10)))

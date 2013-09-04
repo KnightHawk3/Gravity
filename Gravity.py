@@ -17,8 +17,25 @@ while True:
         break
     except:
         print "\nWell, now.  Let's try that again."
+        
+while True:        
+    Screenx = raw_input ("Enter Screen Height:")
+    try:
+        Screenx = int(Screenx)
+        break
+    except:
+        print "\nWell, now.  Let's try that again."
+        
+while True:
+    Screeny = raw_input ("Enter Screen Width:")
+    try:
+        Screeny = int(Screeny)
+        break
+    except:
+        print "\nWell, now.  Let's try that again."
 
-Surface = pygame.display.set_mode((1000, 600))
+Screen_Size = (Screenx, Screeny)
+Surface = pygame.display.set_mode((Screenx, Screeny))
 
 Particles = []
 
@@ -33,14 +50,11 @@ class Particle:
         self.mass = mass
         self.radius = math.sqrt(self.mass)
 
-Particles.append(Particle(500, 300, 0.0, 0.0, 1000))
+Particles.append(Particle(Screenx/2, Screeny/2, 0.0, 0.0, 1000))
 
 for x in range(ParticleNumber):
-    #Particles.append(Particle(random.randint(10,1190), random.randint(10,690), random.randint(-1, 1), random.randint(-1, 1), 4))
-    Particles.append(Particle(random.randint(10,990), random.randint(10,590), random.uniform(-1.5, 1.5), random.uniform(-1.5, 1.5), random.uniform(1, 10)))
-
-
-
+    Particles.append(Particle(random.randint(10,Screenx - 10), random.randint(10,Screeny - 10), random.uniform(-1.5, 1.5), random.uniform(-1.5, 1.5), random.uniform(1, 10)))
+    
 
 def Move():
     for P in Particles:

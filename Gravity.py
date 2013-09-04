@@ -19,7 +19,7 @@ while True:
         print "\nWell, now.  Let's try that again."
         
 while True:        
-    Screenx = raw_input ("Enter Screen Height:")
+    Screenx = raw_input ("Enter Screen Width:")
     try:
         Screenx = int(Screenx)
         break
@@ -27,7 +27,7 @@ while True:
         print "\nWell, now.  Let's try that again."
         
 while True:
-    Screeny = raw_input ("Enter Screen Width:")
+    Screeny = raw_input ("Enter Screen Height:")
     try:
         Screeny = int(Screeny)
         break

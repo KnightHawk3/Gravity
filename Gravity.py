@@ -3,7 +3,7 @@
 #   ||   __  ||==//   ||===||   \\ //     |||      |||     \Y/
 #   \|___|/  ||  \\   ||   ||    \v/     I===I     |||     |||
 #
-#   A little program that creates little simulation of gravity 
+#   A little program that creates little simulation of gravity
 #   a little solar system. The original program, which did all
 #   the actual "Gravity Simulating" was written by Ian Mallet.
 #                             Enjoy it!
@@ -11,6 +11,8 @@
 #    physics is that you can add more digits to any number and
 #          see what happens and nobody can stop you."
 #    -- Randall Monroe
+# Seriously though this is licenced under a MIT Licence. Read
+# Licence.md
 
 import pygame
 import random
@@ -36,7 +38,7 @@ while True:
         break
     except:
         print "\nWell, now.  Let's try that again."
-            
+
 class Particle:
     def __init__(self, x, y, speedx, speedy, mass):
         self.x = x
@@ -70,7 +72,7 @@ class Gravity():
                 print "\nWell, now.  Let's try that again."
 
         ParticleVelocity = input("Enter particle max speed: ")
-            
+
         while True:
             CentreSize = raw_input("Enter how large the central particle is: ")
             # Make sure the number supplied is an int otherwise ask again.

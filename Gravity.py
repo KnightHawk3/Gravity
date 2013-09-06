@@ -21,23 +21,6 @@ import sys
 
 from pygame.locals import *
 
-while True:
-    SCREEN_WIDTH = raw_input("Enter screen width: ")
-    # Make sure the number supplied is an int otherwise ask again.
-    try:
-        SCREEN_WIDTH = int(SCREEN_WIDTH)
-        break
-    except:
-        print "\nWell, now.  Let's try that again."
-
-while True:
-    SCREEN_HEIGHT = raw_input("Enter screen height: ")
-    # Make sure the number supplied is an int otherwise ask again.
-    try:
-        SCREEN_HEIGHT = int(SCREEN_HEIGHT)
-        break
-    except:
-        print "\nWell, now.  Let's try that again."
 
 
 class Particle:
@@ -84,8 +67,8 @@ class Gravity():
                 print "\nWell, now.  Let's try that again."
 
         # Create a large particle in the center of the system
-        self.particles.append(Particle(SCREEN_WIDTH / 2,
-                                       SCREEN_HEIGHT / 2,
+        self.particles.append(Particle(self.SCREEN_WIDTH / 2,
+                                       self.SCREEN_HEIGHT / 2,
                                        0.0,
                                        0.0,
                                        CentreSize))
@@ -93,8 +76,8 @@ class Gravity():
         # Create some random little particles.
         for x in range(ParticleNumber):
             self.particles.append(
-                Particle(random.randint(10, SCREEN_WIDTH - 10),
-                         random.randint(10, SCREEN_HEIGHT - 10),
+                Particle(random.randint(10, self.SCREEN_WIDTH - 10),
+                         random.randint(10, self.SCREEN_HEIGHT - 10),
                          random.uniform(-ParticleVelocity, ParticleVelocity),
                          random.uniform(-ParticleVelocity, ParticleVelocity),
                          random.randint(1, 10)))
@@ -170,4 +153,23 @@ class Gravity():
         pygame.display.flip()
 
 if __name__ == '__main__':
+
+    while True:
+        SCREEN_WIDTH = raw_input("Enter screen width: ")
+        # Make sure the number supplied is an int otherwise ask again.
+        try:
+            SCREEN_WIDTH = int(SCREEN_WIDTH)
+            break
+        except:
+            print "\nWell, now.  Let's try that again."
+
+    while True:
+        SCREEN_HEIGHT = raw_input("Enter screen height: ")
+        # Make sure the number supplied is an int otherwise ask again.
+        try:
+            SCREEN_HEIGHT = int(SCREEN_HEIGHT)
+            break
+        except:
+            print "\nWell, now.  Let's try that again."
+
     game = Gravity(SCREEN_WIDTH, SCREEN_HEIGHT)

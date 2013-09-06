@@ -39,6 +39,7 @@ while True:
     except:
         print "\nWell, now.  Let's try that again."
 
+
 class Particle:
     def __init__(self, x, y, speedx, speedy, mass):
         self.x = x
@@ -83,15 +84,20 @@ class Gravity():
                 print "\nWell, now.  Let's try that again."
 
         # Create a large particle in the center of the system
-        self.particles.append(Particle(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 0.0, 0.0, CentreSize))
+        self.particles.append(Particle(SCREEN_WIDTH / 2,
+                                       SCREEN_HEIGHT / 2,
+                                       0.0,
+                                       0.0,
+                                       CentreSize))
 
         # Create some random little particles.
         for x in range(ParticleNumber):
-            self.particles.append(Particle(random.randint(10, SCREEN_WIDTH - 10),
-                                           random.randint(10, SCREEN_HEIGHT - 10),
-                                           random.uniform(-ParticleVelocity, ParticleVelocity),
-                                           random.uniform(-ParticleVelocity, ParticleVelocity),
-                                           random.randint(1, 10)))
+            self.particles.append(
+                Particle(random.randint(10, SCREEN_WIDTH - 10),
+                         random.randint(10, SCREEN_HEIGHT - 10),
+                         random.uniform(-ParticleVelocity, ParticleVelocity),
+                         random.uniform(-ParticleVelocity, ParticleVelocity),
+                         random.randint(1, 10)))
 
     def gameloop(self):
         while True:

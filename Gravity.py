@@ -22,7 +22,6 @@ import sys
 from pygame.locals import *
 
 
-
 class Particle:
     def __init__(self, x, y, speedx, speedy, mass):
         self.x = x

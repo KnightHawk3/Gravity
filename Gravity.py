@@ -34,6 +34,9 @@ class Particle:
 
 class Gravity():
     def __init__(self, screen_width, screen_height):
+        """
+        Instilisation of the system
+        """
         # Set the size of the surface
         self.SCREEN_WIDTH = screen_width
         self.SCREEN_HEIGHT = screen_height
@@ -45,6 +48,10 @@ class Gravity():
         self.gameloop()
 
     def create_particles(self):
+        """
+        Instilises the particles and creats their objects. They are stored in
+        self.particles (its a list)
+        """
         while True:
             ParticleNumber = raw_input("Enter how many particles to draw: ")
             # Make sure the number supplied is an int otherwise ask again.
@@ -82,6 +89,10 @@ class Gravity():
                          random.randint(1, 10)))
 
     def gameloop(self):
+        """
+        The main game loop, calls the functions self.get_input, self.move,
+        self.collision_detect, self.draw
+        """
         while True:
             self.get_input()
             self.move()
@@ -89,6 +100,9 @@ class Gravity():
             self.draw()
 
     def get_input(self):
+        """
+        Checks for input from the user, if its escape, it quits.
+        """
         keystate = pygame.key.get_pressed()
         for event in pygame.event.get():
             if event.type == QUIT or keystate[K_ESCAPE]:
@@ -96,6 +110,9 @@ class Gravity():
                 sys.exit()
 
     def move(self):
+        """
+        Calculates  the velocity / acceleration and moves the particles
+        """
         for P in self.particles:
             for P2 in self.particles:
                 if P != P2:
@@ -120,6 +137,11 @@ class Gravity():
             P.y += P.speedy
 
     def collision_detect(self):
+        """
+        Detects Collisions within the system, determines if the distance
+        between the objects is greater than the two radii added together,
+        then says thats a collision
+        """
         for P in self.particles:
             for P2 in self.particles:
                 if P != P2:
